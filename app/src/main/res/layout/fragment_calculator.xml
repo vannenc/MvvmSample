@@ -17,6 +17,7 @@
       >
 
 
+    <!-- BEGIN numbers -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -28,8 +29,9 @@
           android:layout_height="wrap_content"
           android:layout_weight="1"
           android:inputType="numberDecimal"
-          android:text="@{calculator.number1}"
+          android:text="@={calculator.number1}"
           tools:text="42"
+          style="@style/EditTextStyle"
           />
 
       <EditText
@@ -37,10 +39,97 @@
           android:layout_height="wrap_content"
           android:layout_weight="1"
           android:inputType="numberDecimal"
-          android:text="@{calculator.number2}"
+          android:text="@={calculator.number2}"
           tools:text="42"
+          style="@style/EditTextStyle"
           />
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/default_padding"
+        >
+      <EditText
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:inputType="numberDecimal"
+          android:text="@={calculator.number3}"
+          tools:text="42"
+          style="@style/EditTextStyle"
+          />
+
+      <EditText
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:inputType="numberDecimal"
+          android:text="@={calculator.number4}"
+          tools:text="42"
+          style="@style/EditTextStyle"
+          />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/default_padding"
+        >
+      <EditText
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:inputType="numberDecimal"
+          android:text="@={calculator.number5}"
+          tools:text="42"
+          style="@style/EditTextStyle"
+          />
+
+      <EditText
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:inputType="numberDecimal"
+          android:text="@={calculator.number6}"
+          tools:text="42"
+          style="@style/EditTextStyle"
+          />
+
+    </LinearLayout>
+    <!-- END numbers -->
+
+    <!-- BEGIN Total -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/default_padding"
+        >
+      <TextView
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="@string/total"
+          style="@style/TotalTextViewStyle"
+
+          />
+
+      <TextView
+          android:id="@+id/textViewTotal"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:text="@={calculator.total}"
+          tools:text="1337"
+          style="@style/TotalTextViewStyle"
+          />
+
+    </LinearLayout>
+    <!-- END Total -->
+
+
   </LinearLayout>
 </layout>

@@ -31,6 +31,7 @@ public class CalculatorViewModel extends ViewModel {
                 calculator.total.set(String.valueOf(newTotal));
                 Timber.i("New total: %s", newTotal);
             } catch (NumberFormatException e) {
+                Timber.i("Error: %s", GENERIC_ERROR);
                 return GENERIC_ERROR;
             }
 
@@ -46,6 +47,7 @@ public class CalculatorViewModel extends ViewModel {
     }
 
     // Copied from http://manaschaudhari.com/blog/2016/09/05/rxjava-meets-data-binding-part-4/
+
     @NonNull
     public static <T> io.reactivex.Observable<T> toObservable(
             @NonNull final ObservableField<T> field) {
