@@ -11,4 +11,5 @@ public class Calculator {
     public ObservableField<String> number5 = new ObservableField<>("0");
     public ObservableField<String> number6 = new ObservableField<>("0");
     public ObservableField<String> total = new ObservableField<>("0");
+    public ObservableField<Boolean> totalVisble = new ObservableField<>(true);
 }
