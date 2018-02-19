@@ -13,8 +13,9 @@ import javax.inject.Inject;
 import me.vannen.mvvmsample.R;
 import me.vannen.mvvmsample.databinding.FragmentCalculatorBinding;
 import me.vannen.mvvmsample.di.MvvmSampleViewModelFactory;
+import timber.log.Timber;
 
-public class CalculatorFragment extends DaggerFragment {
+public class CalculatorFragment extends DaggerFragment implements CalculatorViewModel.ClickCallBacks {
 
     @Inject MvvmSampleViewModelFactory viewModelFactory;
     private CalculatorViewModel viewModel;
@@ -33,6 +34,12 @@ public class CalculatorFragment extends DaggerFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(CalculatorViewModel.class);
-        dataBinding.setCalculator(viewModel.getCalculator());
+        viewModel.setCallback(this);
+        dataBinding.setViewModel(viewModel);
+    }
+
+    @Override
+    public void onTotalClick() {
+         Timber.i("Total clicked");
     }
 }

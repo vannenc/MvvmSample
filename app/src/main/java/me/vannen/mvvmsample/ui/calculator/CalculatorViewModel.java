@@ -14,7 +14,8 @@ import timber.log.Timber;
 public class CalculatorViewModel extends ViewModel {
 
     public static final String GENERIC_ERROR = "Error";
-    private Calculator calculator = new Calculator();
+    public Calculator calculator = new Calculator();
+    private ClickCallBacks callbacks;
 
     public CalculatorViewModel() {
         io.reactivex.Observable.combineLatest(toObservable(calculator.number1), toObservable(calculator.number2), toObservable(calculator.number3), toObservable(calculator.number4), toObservable(calculator.number5), toObservable(calculator.number6), (s, s2, s3, s4, s5, s6) -> {
@@ -42,12 +43,25 @@ public class CalculatorViewModel extends ViewModel {
                         .set(GENERIC_ERROR));
     }
 
-    public Calculator getCalculator() {
-        return calculator;
+    public void toggleTotalVisible() {
+        calculator.totalVisble.set(!calculator.totalVisble.get());
+    }
+
+    public void setCallback(ClickCallBacks callbacks) {
+        this.callbacks = callbacks;
+    }
+
+    public void onTotalClick() {
+        if (callbacks != null) {
+            callbacks.onTotalClick();
+        }
+    }
+
+    public interface ClickCallBacks {
+        void onTotalClick();
     }
 
     // Copied from http://manaschaudhari.com/blog/2016/09/05/rxjava-meets-data-binding-part-4/
-
     @NonNull
     public static <T> io.reactivex.Observable<T> toObservable(
             @NonNull final ObservableField<T> field) {
