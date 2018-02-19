@@ -1,0 +1,90 @@
+allprojects {
+  repositories {
+    jcenter()
+    google()
+  }
+}
+
+ext {
+
+  //Android
+  androidBuildToolsVersion = "27.0.1"
+  androidMinSDKVersion = 19
+  androidTargetSDKVersion = 27
+  androidCompileSDKVersion = 27
+  architectureComponentsVersion = '1.0.0'
+  supportLibraryVersion = '27.0.2'
+  supportConstraintVersion = '1.0.2'
+  playServicesLocationVersion = '11.8.0'
+
+  //Libraries
+  daggerVersion = '2.14.1'
+  butterknifeVersion = '8.8.1'
+  retrofitVersion = '2.3.0'
+  retrofitGsonConverterVersion = '2.3.0'
+  glideVersion = "4.5.0"
+  autoValueVersion = "1.2"
+  loggingInterceptorVersion = "3.8.0"
+  timberVersion = "4.6.0"
+  easyPermissionVersion = "1.1.3"
+  rxJavaVersion = "2.1.9"
+  rxJavaAndroidVersion = "2.0.2"
+
+  //Testing
+  mockitoVersion = "2.9.0"
+  junitVersion = "4.12"
+  mockWebServerVersion = "3.9.1"
+  expressoVersion = "3.0.1"
+  testRunnerVersion = "1.0.1"
+
+  developmentDependencies = [
+
+      supportAppcompatV7                : "com.android.support:appcompat-v7:${supportLibraryVersion}",
+      supportConstraint                 : "com.android.support.constraint:constraint-layout:${supportConstraintVersion}",
+      supportRecyclerView               : "com.android.support:recyclerview-v7:${supportLibraryVersion}",
+      supportDesign                     : "com.android.support:design:${supportLibraryVersion}",
+
+      playServicesLocation              : "com.google.android.gms:play-services-location:${playServicesLocationVersion}",
+
+
+      architectureComponentsExtensions  : "android.arch.lifecycle:extensions:${architectureComponentsVersion}",
+      architectureComponentsCompiler    : "android.arch.lifecycle:compiler:${architectureComponentsVersion}",
+      architectureComponentsRoomCompiler: "android.arch.persistence.room:compiler:${architectureComponentsVersion}",
+      architectureComponentsRoomRuntime : "android.arch.persistence.room:runtime:${architectureComponentsVersion}",
+
+
+      dagger                            : "com.google.dagger:dagger:${daggerVersion}",
+      daggerCompiler                    : "com.google.dagger:dagger-compiler:${daggerVersion}",
+      daggerAndroid                     : "com.google.dagger:dagger-android:${daggerVersion}",
+      daggerAndroidSupport              : "com.google.dagger:dagger-android-support:${daggerVersion}",
+      daggerAndroidProcessor            : "com.google.dagger:dagger-android-processor:${daggerVersion}",
+
+      butterknife                       : "com.jakewharton:butterknife:${butterknifeVersion}",
+      butterknifeAndroidProcessor       : "com.jakewharton:butterknife-compiler:${butterknifeVersion}",
+
+      retrofit                          : "com.squareup.retrofit2:retrofit:${retrofitVersion}",
+      retrofitGsonConverter             : "com.squareup.retrofit2:converter-gson:${retrofitGsonConverterVersion}",
+      loggingInterceptor                : "com.squareup.okhttp3:logging-interceptor:${loggingInterceptorVersion}",
+
+      rxJava : "io.reactivex.rxjava2:rxjava:${rxJavaVersion}",
+      rxJavaAndroid : "io.reactivex.rxjava2:rxandroid:${rxJavaAndroidVersion}",
+
+      glide                             : "com.github.bumptech.glide:glide:${glideVersion}",
+      glideCompiler                     : "com.github.bumptech.glide:compiler:${glideVersion}",
+      timber                            : "com.jakewharton.timber:timber:${timberVersion}",
+
+      easyPermission                    : "pub.devrel:easypermissions:${easyPermissionVersion}",
+
+  ]
+
+  testingDependencies = [
+
+      junit                     : "junit:junit:${junitVersion}",
+      mockito                   : "org.mockito:mockito-core:${mockitoVersion}",
+      mockwebserver             : "com.squareup.okhttp3:mockwebserver:${mockWebServerVersion}",
+      architectureComponentsTest: "android.arch.core:core-testing:${architectureComponentsVersion}",
+      expressoCore              : "com.android.support.test.espresso:espresso-core:${expressoVersion}",
+      expressoIntent            : "com.android.support.test.espresso:espresso-intents:${expressoVersion}",
+      expressoContrib           : "com.android.support.test.espresso:espresso-contrib:${expressoVersion}",
+      testRunner                : "com.android.support.test:runner:${testRunnerVersion}",]
+}

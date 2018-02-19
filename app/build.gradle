@@ -1,0 +1,61 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["androidCompileSDKVersion"]
+    defaultConfig {
+        applicationId "me.vannen.mvvmsample"
+        minSdkVersion globalConfiguration["androidMinSDKVersion"]
+        targetSdkVersion globalConfiguration["androidTargetSDKVersion"]
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation developmentDependencies.supportAppcompatV7
+    implementation developmentDependencies.supportDesign
+
+    // Android architecture components
+    implementation developmentDependencies.architectureComponentsExtensions
+    annotationProcessor developmentDependencies.architectureComponentsCompiler
+
+    // Dagger
+    implementation developmentDependencies.dagger
+    annotationProcessor developmentDependencies.daggerCompiler
+    annotationProcessor developmentDependencies.daggerAndroidProcessor
+    implementation developmentDependencies.daggerAndroidSupport
+
+    // RxJava
+    implementation developmentDependencies.rxJava
+    implementation developmentDependencies.rxJavaAndroid
+
+    // Logs
+    implementation developmentDependencies.timber
+
+    // Butterknife
+    implementation developmentDependencies.butterknife
+
+    // testing
+    testImplementation testingDependencies.junit
+    testImplementation testingDependencies.mockito
+}
