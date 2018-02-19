@@ -7,7 +7,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
 import dagger.android.support.DaggerApplication;
 import me.vannen.mvvmsample.MvvmApp;
 
-@Component(modules = { AndroidSupportInjectionModule.class, AppModule.class })
+@Component(modules = { AndroidSupportInjectionModule.class, AppModule.class, BuildersModule.class })
 public interface AppComponent extends AndroidInjector<DaggerApplication> {
 
     @Component.Builder
