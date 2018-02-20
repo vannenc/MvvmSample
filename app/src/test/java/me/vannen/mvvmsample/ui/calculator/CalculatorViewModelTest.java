@@ -48,7 +48,7 @@ public class CalculatorViewModelTest {
         calculatorViewModel.calculator.number5.set("10");
         calculatorViewModel.calculator.number6.set("1dsfdsf");
 
-        assertEquals("Error", calculatorViewModel.calculator.total.get());
+        assertEquals(CalculatorViewModel.GENERIC_ERROR, calculatorViewModel.calculator.total.get());
     }
 
     @Test
